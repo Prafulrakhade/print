@@ -23,7 +23,7 @@ on:
 
 jobs:
   build-maven-print:
-    uses: mosip/kattu/.github/workflows/maven-build.yml@master-java21
+    uses: Prafulrakhade/kattu/.github/workflows/maven-build.yml@master-java21
     with:
       SERVICE_LOCATION: ./
       BUILD_ARTIFACT: print-service
@@ -94,7 +94,7 @@ jobs:
             SQUASH_LAYERS: '11'
       fail-fast: false
     name: ${{ matrix.SERVICE_NAME }}
-    uses: mosip/kattu/.github/workflows/docker-build.yml@master-java21
+    uses: Prafulrakhade/kattu/.github/workflows/docker-build.yml@master-java21
     with:
       SERVICE_LOCATION: ${{ matrix.SERVICE_LOCATION }}
       SERVICE_NAME: ${{ matrix.SERVICE_NAME }}
@@ -109,7 +109,7 @@ jobs:
   sonar_analysis:
     needs: build-maven-print
     if: "${{  github.event_name != 'pull_request' }}"
-    uses: mosip/kattu/.github/workflows/maven-sonar-analysis.yml@master-java21
+    uses: Prafulrakhade/kattu/.github/workflows/maven-sonar-analysis.yml@master-java21
     with:
       SERVICE_LOCATION: ./
     secrets:
